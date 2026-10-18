@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:litera/widgets/paper_card.dart';
+import 'package:litera/data/papers_data.dart';
+
 
 class HomeScreen extends StatefulWidget{
   const HomeScreen({super.key});
@@ -82,6 +85,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
               ],
             ),
+            ...papersData.map((paper) => PaperCard(
+                    title: paper["title"], 
+                    authors: paper["authors"], 
+                    year: paper["year"], 
+                    abstractText: paper["abstract"], 
+                    citations: paper["citations"],
+                    topics: List<String>.from(paper["topics"]),
+                                                  )
+                            ),
           ],
         ),
       )
