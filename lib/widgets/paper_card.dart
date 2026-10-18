@@ -1,7 +1,22 @@
 import 'package:flutter/material.dart';
 
 class PaperCard extends StatefulWidget {
-  const PaperCard({super.key});
+  final String title;
+  final String authors;
+  final String year;
+  final String abstractText;
+  final String citations;
+  final List<String> topics;
+
+  const PaperCard({
+    super.key,
+    required this.title,
+    required this.authors,
+    required this.year,
+    required this.abstractText,
+    required this.citations,
+    this.topics = const [],
+    });
 
   @override 
   State<PaperCard> createState() => _PaperCardState();
@@ -29,8 +44,7 @@ class _PaperCardState extends State<PaperCard> {
                 children: [
                   Row(
                     children: [
-                      Text("Artificial Intelligence"),
-                      Text("Education"),
+                      ...widget.topics.map((topic) => Text(topic)),
                       // Icon(Icons.bookmark)
                       const Spacer(), //to create adjustable space between first element and second element
                       IconButton(
@@ -43,20 +57,20 @@ class _PaperCardState extends State<PaperCard> {
                       )
                     ],
                   ),
-                  Text("Retrieval-Augmented Generation for Educational Applications"),
+                  Text(widget.title),
                   Row(children: [
-                      Text("Jakub Swacha, Elena Vance et al."),
-                      Text("2025"),
+                      Text(widget.authors),
+                      Text(widget.year),
                     ],
                   ),
                   Text(
-                    "Retrieval-Augmented Generation (RAG) has increasingly been adopted to overcome factual hallucinations in large language models applied within pedagogical environments. This paper evaluates a domain-grounded RAG architecture deployed across 1,200 undergraduate engineering students. By pairing an indexed textbook vector database with sparse-dense hybrid retrieval, the system achieves a 68% reduction in hallucinated explanations compared to raw LLM baselines while fostering self-regulated study habits.",
+                    widget.abstractText,
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis),
                   Row(
                     children: [
                       Icon(Icons.format_quote_outlined),
-                      Text("152 Citations")
+                      Text("${widget.citations} Citations")
                     ],
                   )
                 ],
