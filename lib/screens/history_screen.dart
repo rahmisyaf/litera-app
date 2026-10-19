@@ -18,7 +18,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('this is appbar in History'),
+        centerTitle: true,
+        title: const Text('History'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(15.0),
@@ -35,7 +36,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
               },
             ),
             if (historyPapers.isEmpty)
-            const Center(child: Text("No saved papers yet.\nBookmark papers to read them later!"),)
+            const Center(child: Text("No papers yet.\nRead any papers and mark them as read!"),)
 
             else
             ...historyPapers.map((paper) => PaperCard(

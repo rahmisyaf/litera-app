@@ -41,25 +41,6 @@ class _TopicSelectionState extends State<TopicSelection> {
         child: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
           children: [
-            Row(
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFF3E8FF),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: const Text(
-                    "STEP 1 OF 1",
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF9333EA),
-                    ),
-                  ),
-                ),
-              ],
-            ),
             const SizedBox(height: 16),
             const Text(
               "What are you\ninterested in?",

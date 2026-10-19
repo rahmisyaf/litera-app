@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:litera/widgets/paper_card.dart';
 import 'package:litera/data/papers_data.dart';
+import 'package:litera/screens/topic_selection_screen.dart';
 
 
 class HomeScreen extends StatefulWidget{
@@ -41,7 +42,10 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
             onPressed: (){
-
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const TopicSelection()),
+                );              
             }, 
             icon: Icon(Icons.settings))
         ],
@@ -52,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,   
           spacing: 16,       
           children: [
-            Text("Good Morning!"),
+            Text("Hello, Welcome!"),
             Text("Here are some papers for you"),
             SearchBar(
               leading: const Icon(Icons.search),
