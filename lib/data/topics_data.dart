@@ -1,0 +1,15 @@
+final List<String> topics = [
+    'For You (Personalized)',
+    'Artificial Intelligence',
+    'Human-Computer Interaction',
+    'Software Engineering',
+    'Data Science',
+    'Information Systems',
+    'Computer Networks',
+    'Cognitive Psychology',
+    'Social Psychology',
+    'Educational Psychology',
+    'Economics',
+    'Medicine',
+    'Environmental Science',
+  ];

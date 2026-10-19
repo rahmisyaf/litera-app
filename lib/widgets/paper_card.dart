@@ -50,7 +50,7 @@ class _PaperCardState extends State<PaperCard> {
                       IconButton(
                         onPressed: (){
                           setState(() {
-                            // isBookmarked = !isBookmarked;
+                            isBookmarked = !isBookmarked;
                           });
                         }, 
                         icon: Icon(Icons.bookmark)

@@ -92,8 +92,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     abstractText: paper["abstract"], 
                     citations: paper["citations"],
                     topics: List<String>.from(paper["topics"]),
-                                                  )
-                            ),
+                    )
+            ),
           ],
         ),
       )
