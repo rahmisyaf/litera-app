@@ -7,6 +7,8 @@ class PaperCard extends StatefulWidget {
   final String abstractText;
   final String citations;
   final List<String> topics;
+  final bool isBookmarked;
+  final bool isRead;
 
   const PaperCard({
     super.key,
@@ -16,6 +18,8 @@ class PaperCard extends StatefulWidget {
     required this.abstractText,
     required this.citations,
     this.topics = const [],
+    this.isBookmarked = false,
+    this.isRead = false
     });
 
   @override 
@@ -23,7 +27,15 @@ class PaperCard extends StatefulWidget {
 }
 
 class _PaperCardState extends State<PaperCard> {
-  bool isBookmarked = false;
+  late bool isBookmarked;
+  late bool isRead;
+
+  @override  
+  void initState(){
+    super.initState();
+    isBookmarked = widget.isBookmarked;
+    isRead = widget.isRead;
+  }
 
   @override
   Widget build(BuildContext context) {

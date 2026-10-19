@@ -39,13 +39,15 @@ class _SavedScreenState extends State<SavedScreen> {
             const Center(child: Text("No saved papers yet.\nBookmark papers to read them later!"),)
 
             else
-            ...savedPapers.map((paper) => PaperCard(
+            ...savedPapers.map((paper) => 
+            PaperCard(
                     title: paper["title"], 
                     authors: paper["authors"], 
                     year: paper["year"], 
                     abstractText: paper["abstract"], 
                     citations: paper["citations"],
                     topics: List<String>.from(paper["topics"]),
+                    isBookmarked: paper["isBookmarked"] ?? false,
                     )
             ),
           ],

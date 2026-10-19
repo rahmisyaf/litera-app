@@ -46,6 +46,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     abstractText: paper["abstract"], 
                     citations: paper["citations"],
                     topics: List<String>.from(paper["topics"]),
+                    isRead: paper["isRead"] ?? false,
+                    isBookmarked: paper["isBookmarked"] ?? false,
                     )
             ),
           ],
