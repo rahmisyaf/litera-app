@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:litera/widgets/paper_card.dart';
 import 'package:litera/data/papers_data.dart';
 import 'package:litera/screens/topic_selection_screen.dart';
+import 'package:litera/screens/paper_detail_screen.dart';
 
 
 class HomeScreen extends StatefulWidget{
@@ -89,7 +90,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
               ],
             ),
-            ...papersData.map((paper) => PaperCard(
+            ...papersData.map((paper) => 
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)  => DetailPaperScreen(paper: paper))
+                );
+              },
+            
+            child: PaperCard(
                     title: paper["title"], 
                     authors: paper["authors"], 
                     year: paper["year"], 
@@ -97,7 +105,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     citations: paper["citations"],
                     topics: List<String>.from(paper["topics"]),
                     isBookmarked: paper["isBookmarked"] ?? false,
-                    )
+
+                    onBookmarkTap: () {
+                      paper["isBookmarked"] = !(paper["isBookmarked"] ?? false);
+                    },
+  
+                )
+              )
             ),
           ],
         ),

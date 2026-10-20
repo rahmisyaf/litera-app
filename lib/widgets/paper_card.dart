@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class PaperCard extends StatefulWidget {
@@ -8,6 +9,7 @@ class PaperCard extends StatefulWidget {
   final String citations;
   final List<String> topics;
   final bool isBookmarked;
+  final VoidCallback? onBookmarkTap;
   final bool isRead;
 
   const PaperCard({
@@ -19,7 +21,8 @@ class PaperCard extends StatefulWidget {
     required this.citations,
     this.topics = const [],
     this.isBookmarked = false,
-    this.isRead = false
+    this.isRead = false,
+    this.onBookmarkTap
     });
 
   @override 
@@ -64,8 +67,10 @@ class _PaperCardState extends State<PaperCard> {
                           setState(() {
                             isBookmarked = !isBookmarked;
                           });
+                          widget.onBookmarkTap?.call();
                         }, 
-                        icon: Icon(Icons.bookmark)
+                        icon: Icon(isBookmarked ? Icons.bookmark : Icons.bookmark_border,),
+                        color: isBookmarked ? const Color(0xFF9333EA) : Colors.grey,
                       )
                     ],
                   ),

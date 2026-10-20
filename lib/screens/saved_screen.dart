@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:litera/screens/paper_detail_screen.dart';
 import 'package:litera/widgets/paper_card.dart';
 import 'package:litera/data/papers_data.dart';
 
@@ -40,20 +41,25 @@ class _SavedScreenState extends State<SavedScreen> {
 
             else
             ...savedPapers.map((paper) => 
-            PaperCard(
-                    title: paper["title"], 
-                    authors: paper["authors"], 
-                    year: paper["year"], 
-                    abstractText: paper["abstract"], 
-                    citations: paper["citations"],
-                    topics: List<String>.from(paper["topics"]),
-                    isBookmarked: paper["isBookmarked"] ?? false,
-                    )
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPaperScreen(paper: paper))
+                );
+              },
+              child: PaperCard(
+                      title: paper["title"], 
+                      authors: paper["authors"], 
+                      year: paper["year"], 
+                      abstractText: paper["abstract"], 
+                      citations: paper["citations"],
+                      topics: List<String>.from(paper["topics"]),
+                      isBookmarked: paper["isBookmarked"] ?? false,
+                      )
+              )
             ),
           ],
         ),
       )
-
     );
   }
 }
