@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:litera/screens/paper_detail_screen.dart';
 import 'package:litera/widgets/paper_card.dart';
+import 'package:litera/widgets/custom_search_bar.dart';
 import 'package:litera/data/papers_data.dart';
 
 class SavedScreen extends StatefulWidget{
@@ -28,10 +29,7 @@ class _SavedScreenState extends State<SavedScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,   
           spacing: 16,       
           children: [
-            SearchBar(
-              leading: const Icon(Icons.search),
-              hintText: "Search papers, topics, authors...",
-              elevation: const WidgetStatePropertyAll(0),
+            CustomSearchBar(
               onChanged: (text){
                 print("user typed: $text");
               },
@@ -46,6 +44,7 @@ class _SavedScreenState extends State<SavedScreen> {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPaperScreen(paper: paper))
                 );
               },
+              
               child: PaperCard(
                       title: paper["title"], 
                       authors: paper["authors"], 
@@ -53,7 +52,12 @@ class _SavedScreenState extends State<SavedScreen> {
                       abstractText: paper["abstract"], 
                       citations: paper["citations"],
                       topics: List<String>.from(paper["topics"]),
-                      isBookmarked: paper["isBookmarked"] ?? false,
+                      isBookmarked: paper["isBookmarked"] ?? true,
+                      onBookmarkTap: () {
+                        setState(() {
+                              paper["isBookmarked"] = ! paper["isBookmarked"];
+                            });
+                      }
                       )
               )
             ),

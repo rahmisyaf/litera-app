@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:litera/screens/paper_detail_screen.dart';
 import 'package:litera/widgets/paper_card.dart';
+import 'package:litera/widgets/custom_search_bar.dart';
 import 'package:litera/data/papers_data.dart';
 
 class HistoryScreen extends StatefulWidget{
@@ -28,10 +29,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,   
           spacing: 16,       
           children: [
-            SearchBar(
-              leading: const Icon(Icons.search),
-              hintText: "Search papers, topics, authors...",
-              elevation: const WidgetStatePropertyAll(0),
+            CustomSearchBar(
               onChanged: (text){
                 print("user typed: $text");
               },
